@@ -1,5 +1,5 @@
 from src.utils.common import read_yaml_contents
-from src.utils.load_save_data import get_data
+from src.utils.load_data import get_data
 import argparse
 
 def training(config_path):
