@@ -2,7 +2,7 @@ import tensorflow as tf
 import time
 import os
 
-def create_model(loss_function, optimizer, metrics):
+def create_model(loss_function, metrics, optimizer):
     LAYERS = [tf.keras.layers.Flatten(input_shape = (28,28), name = "Input Layer"),
         tf.keras.layers.Dense(300, activation='relu', name = "Hidden Layer 1"),
         tf.keras.layers.Dense(100, activation='relu', name = "Hidden Layer 2"),
@@ -14,7 +14,7 @@ def create_model(loss_function, optimizer, metrics):
 
     model_clf.summary()
 
-    model_clf.compile(metrics = metrics, optimzier = optimizer, loss_function= loss_function)
+    model_clf.compile(metrics = metrics, optimizer = optimizer, loss= loss_function)
 
     return model_clf
 
@@ -26,4 +26,3 @@ def save_model(model,model_name,model_dir):
     file_name = unique_file_name(model_name)
     model_dir_path = os.path.join(model_dir, file_name)
     model.save(model_dir_path)
-    

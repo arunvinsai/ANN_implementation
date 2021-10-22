@@ -8,13 +8,13 @@ def training(config_path):
     config = read_yaml_contents(config_path)
     print(config)
 
-    validation_datasize = config['params']['validatation_data_size']
+    validation_datasize = config['params']['validation_data_size']
 
     (X_train, y_train), (X_train_val, y_train_val), (X_test, y_test) = get_data(validation_datasize)
 
     epochs = config['params']['epochs']
     loss_function = config['params']['loss_function']
-    metrics = config["params"]["accuracy"]
+    metrics = config["params"]["metrics"]
     optimizer = config['params']['optimizer']
 
     model = create_model(loss_function, metrics, optimizer)
@@ -28,7 +28,8 @@ def training(config_path):
     os.makedirs(model_dir_path, exist_ok=True)
     # saving the model
     save_model(model, model_name, model_dir_path)
-    
+
+
 
 
 if __name__ == '__main__':
