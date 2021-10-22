@@ -1,0 +1,10 @@
+tensorflow
+matplotlib
+seaborn
+numpy
+pandas
+PyYAML
+
+
+# to create the package in the local system
+-e .
